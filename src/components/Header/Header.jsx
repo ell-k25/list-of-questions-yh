@@ -1,0 +1,31 @@
+import styles from './styles.module.css'
+import logo from '../../assets/icon/logoYeahub.png'
+
+const Header = () => {
+  return ( 
+    <header className={styles.header}>
+            <div className={styles.container}>
+                <img src={logo} alt='Логотип'/>
+
+                <nav className={styles.nav}>
+                    <a href='#'>База вопросов</a>
+                    <a href='#'>Тренажер</a>
+                    <a href='#'>Материалы</a>
+                    <a href='#'>Навыки (hh)</a>
+                </nav>
+
+                <div className={styles.actions}>
+                    <button type='button' className={styles.loginBtn}>
+                        Вход
+                    </button>
+
+                    <button type='button' className={styles.registerBtn}>
+                        Регистрация
+                    </button>
+                </div>
+            </div>
+    </header>
+   );
+}
+ 
+export default Header;
