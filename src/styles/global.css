@@ -1,0 +1,68 @@
+/* =========================
+   CSS-переменные
+========================= */
+
+:root {
+  /* Текст */
+  --text: #474747;
+  --text-header: #191919;
+  --text-white: #fff;
+
+  /* Фоны */
+  --color-default-bg: #f4f4f4;
+  --color-bg: #ffffff;
+
+  /* Акцентные цвета */
+  --accent: #6a0bff;
+  --accent-dim: #690bff4b;
+
+  /* Оформление */
+  --shadow: 0 4px 10px 0 rgba(106, 99, 118, 0.1);
+  --border: 1px solid #bababa;
+
+  /* Типографика */
+  --font-family: 'Manrope', sans-serif;
+  --font-size: 1rem;
+  --line-height: 120%;
+
+  /* Размеры */
+  --container-width: 1440px;
+}
+
+/* =========================
+   Сброс и базовые настройки
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--color-default-bg);
+}
+
+body {
+  color: var(--text);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+/* =========================
+   Общие классы
+========================= */
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  min-height: 100vh;
+  margin: 0 auto;
+}

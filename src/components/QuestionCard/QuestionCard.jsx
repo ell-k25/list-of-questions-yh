@@ -1,44 +1,89 @@
 import { useState } from "react";
-import styles from './styles.module.css'
-// import arrowOpen from '../../assets/icon/accordeon-down.png'
-// import arrowClose from '../../assets/icon/accordeon-up.png'
+import styles from "./styles.module.css";
+import arrowOpen from '../../assets/icon/accordeon-down.png'
+import arrowClose from '../../assets/icon/accordeon-up.png'
 
-const QuestionCard = ({question}) => {
-const [isOpen, setIsOpen] = useState(false)
+const QuestionCard = ({ question }) => {
+  const [isOpen, setIsOpen] = useState(false);
 
+  const toggleAnswer = () => {
+    setIsOpen((prev) => !prev);
+  };
 
-
-
-  return ( 
+  return (
     <article className={styles.card}>
-<button className={styles.question} onClick={() => setIsOpen(!isOpen)}>
-  <span>{question.title}</span>
-  <span>{isOpen ? '⌃' : '⌄'}</span>
-</button>
+      {/* Заголовок карточки */}
+      <button
+        className={styles.question}
+        onClick={toggleAnswer}
+        type="button"
+        aria-expanded={isOpen}
+      >
+        <span className={styles.title}>
+          {question.title}
+        </span>
 
-<div className={styles.meta}>
-  <span>Рейтинг: {question.rate}</span>
-  <span>Сложность: {question.complexity}</span>
-</div>
+        <img
+          className={styles.arrow}
+          src={isOpen ? arrowClose : arrowOpen}
+          alt={isOpen ? "Свернуть" : "Развернуть"}
+        />
+      </button>
 
-{isOpen && (
-  <div className={styles.content}>
-    {question.code && (
-      <pre>
-        <code>{question.code}</code>
-      </pre>
-    )}
+      {/* Содержимое открытой карточки */}
+      {isOpen && (
+        <div className={styles.details}>
 
-    {question.imageSrc && (
-      <img src={question.imageSrc} alt='' />
-    )}
+          {/* Рейтинг, сложность и меню */}
+          <div className={styles.meta}>
+            <div className={styles.badges}>
+              <div className={styles.badge}>
+                Рейтинг
+                <span>{question.rate}</span>
+              </div>
 
-    <p>{question.description}</p>
-  </div>
-)}
+              <div className={styles.badge}>
+                Сложность
+                <span>{question.complexity}</span>
+              </div>
+            </div>
 
+            <button
+              className={styles.menuButton}
+              type="button"
+              aria-label="Открыть меню вопроса"
+            >
+              ⋮
+            </button>
+          </div>
+
+          {/* Изображение */}
+          {question.imageSrc && (
+            <img
+              className={styles.exampleImage}
+              src={question.imageSrc}
+              alt="Пример кода"
+            />
+          )}
+
+          {/* Текстовый пример кода */}
+          {question.code && (
+            <pre className={styles.code}>
+              <code>{question.code}</code>
+            </pre>
+          )}
+
+          {/* Развёрнутый ответ */}
+          {question.longAnswer && (
+            <div className={styles.answer}>
+              {question.longAnswer}
+            </div>
+          )}
+
+        </div>
+      )}
     </article>
-   );
-}
- 
+  );
+};
+
 export default QuestionCard;

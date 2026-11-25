@@ -3,6 +3,8 @@ import { getQuestions } from "../api/questionService";
 
 export function useQuestions(filters, page) {
   const [questions, setQuestions] = useState([]);
+  const [total, setTotal] = useState(0);
+  const [limit, setLimit] = useState(10);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -21,11 +23,10 @@ export function useQuestions(filters, page) {
           signal: controller.signal,
         });
 
-        console.log("Ответ API:", data);
-        console.log("Массив вопросов:", data.data);
-
         if (!controller.signal.aborted) {
           setQuestions(data.data);
+          setTotal(data.total);
+          setLimit(data.limit);
         }
       } catch (err) {
         if (!controller.signal.aborted) {
@@ -45,6 +46,8 @@ export function useQuestions(filters, page) {
 
   return {
     questions,
+    total,
+    limit,
     loading,
     error,
   };

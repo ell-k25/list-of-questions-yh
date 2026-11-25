@@ -1,0 +1,39 @@
+.paginationList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 233px;
+  height: 28px;
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+}
+
+.paginationList button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.paginationItem.active button {
+  color: #fff;
+  background-color: var(--accent);
+  border-radius: 2px;
+}
+
+.paginationList button:disabled {
+  cursor: default;
+}
+
+.paginationList button:disabled img {
+  opacity: 0.5;
+}
