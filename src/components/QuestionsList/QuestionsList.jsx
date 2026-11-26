@@ -1,4 +1,4 @@
-// import styles from './styles.module.css'
+import styles from './styles.module.css'
 
 import QuestionCard from "../QuestionCard/QuestionCard";
 
@@ -8,7 +8,7 @@ const QuestionsList = ({ questions = [] }) => {
   }
 
   return (
-    <div>
+    <div className={styles.list}>
       {questions.map((question) => (
         <QuestionCard key={question.id} question={question} />
       ))}

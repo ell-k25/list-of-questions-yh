@@ -1,0 +1,58 @@
+
+.sidebar {
+  width: 392px;
+  flex-shrink: 0;
+  padding: 20px;
+  background: var(--color-bg);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+
+.filterGroup {
+  margin-top: 20px;
+}
+
+.filterGroup h4 {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.filterOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filterButton {
+  padding: 6px 10px;
+  border: 1px solid #d6d6d6;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.filterButton:hover {
+  border-color: var(--accent);
+}
+
+.filterButton.active {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.showAll {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--accent);
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+}
